@@ -78,7 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				8500B680232C224000F6378F /* AppDelegate.swift */,
-				8500B682232C224000F6378F /* ViewController.swift */,
+				8500B6A2232C2AA200F6378F /* Custom Cell file */,
+				8500B6A0232C29DA00F6378F /* View controllers */,
+				8500B6A1232C2A6D00F6378F /* Models */,
+				8500B6A3232C2AB400F6378F /* APIClients */,
+				8500B6A4232C2AE500F6378F /* Helper folder */,
 				8500B684232C224000F6378F /* Main.storyboard */,
 				8500B687232C224100F6378F /* Assets.xcassets */,
 				8500B689232C224100F6378F /* LaunchScreen.storyboard */,
@@ -94,6 +98,42 @@
 				8500B697232C224100F6378F /* Info.plist */,
 			);
 			path = "Resturant-TinderTests";
+			sourceTree = "<group>";
+		};
+		8500B6A0232C29DA00F6378F /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8500B682232C224000F6378F /* ViewController.swift */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		8500B6A1232C2A6D00F6378F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8500B6A2232C2AA200F6378F /* Custom Cell file */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Cell file";
+			sourceTree = "<group>";
+		};
+		8500B6A3232C2AB400F6378F /* APIClients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIClients;
+			sourceTree = "<group>";
+		};
+		8500B6A4232C2AE500F6378F /* Helper folder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helper folder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
