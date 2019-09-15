@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08964360232DE23C00335B9D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896435F232DE23C00335B9D /* Secrets.swift */; };
 		8500B681232C224000F6378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B680232C224000F6378F /* AppDelegate.swift */; };
 		8500B683232C224000F6378F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B682232C224000F6378F /* ViewController.swift */; };
 		8500B686232C224000F6378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8500B684232C224000F6378F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0896435F232DE23C00335B9D /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8500B67D232C224000F6378F /* Resturant-Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resturant-Tinder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8500B680232C224000F6378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8500B682232C224000F6378F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				8500B687232C224100F6378F /* Assets.xcassets */,
 				8500B689232C224100F6378F /* LaunchScreen.storyboard */,
 				8500B68C232C224100F6378F /* Info.plist */,
+				0896435F232DE23C00335B9D /* Secrets.swift */,
 			);
 			path = "Resturant-Tinder";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8500B683232C224000F6378F /* ViewController.swift in Sources */,
+				08964360232DE23C00335B9D /* Secrets.swift in Sources */,
 				8500B681232C224000F6378F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
