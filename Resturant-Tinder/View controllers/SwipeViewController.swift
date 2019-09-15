@@ -1,10 +1,3 @@
-//
-//  SwipeViewController.swift
-//  Resturant-Tinder
-//
-//  Created by Mr Wonderful on 9/14/19.
-//  Copyright © 2019 Mr Wonderful. All rights reserved.
-//
 
 import UIKit
 
@@ -14,9 +7,12 @@ class SwipeViewController: UIViewController {
     @IBOutlet var swipeCard: UIView!
     @IBOutlet var menuView: UIView!
     
+    @IBOutlet var shadowView: UIView!
     @IBOutlet var menuButton: UIBarButtonItem!
+    @IBOutlet var slideViewMenuButton: UIButton!
     var divisorNumber:CGFloat!
     
+    @IBOutlet var shadowViewTrsilingContraints: NSLayoutConstraint!
     @IBOutlet var menubarLeadindContraits: NSLayoutConstraint!
     var menuDisplayed = false
     override func viewDidLoad() {
@@ -26,9 +22,15 @@ class SwipeViewController: UIViewController {
         divisorNumber = (view.frame.width / 2) / 0.61
         swipeCard.layer.borderWidth = 3
         
-        menubarLeadindContraits.constant = -207
+        menubarLeadindContraits.constant = -250
         menuView.layer.shadowOpacity = 1
         menuView.layer.shadowRadius = 5
+        menuView.layer.cornerRadius = 20
+        
+        shadowView.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        shadowView.layer.shadowOpacity = 1
+        shadowView.layer.shadowRadius = 5
+        
         
     }
     func printFunction(){
@@ -78,7 +80,6 @@ class SwipeViewController: UIViewController {
         
         if panCard.center.x > 257 || panCard.center.x < 157{
             panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
-            
         }
         
         //recenter the view when finger is off
@@ -102,25 +103,48 @@ class SwipeViewController: UIViewController {
             }
             resetPanCard()
         }
-        
     }
     
     @IBAction func menuButtonPressed(_ sender: UIBarButtonItem) {
         
         switch menuDisplayed{
         case false:
-            menubarLeadindContraits.constant = 0
-            UIView.animate(withDuration: 0.3, animations: {
+            // animates the menu view
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.menubarLeadindContraits.constant = -20
+                self.slideViewMenuButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
                 self.view.layoutIfNeeded()
-            })
-            menuDisplayed = true
+                
+                self.menuDisplayed = true
+            }) { (true) in
+                self.menuButton.tintColor = .red
+            }
+            
+            // animates the shadow view
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.shadowViewTrsilingContraints.constant = 0
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            
             
         case true:
-            menubarLeadindContraits.constant = -207
-            UIView.animate(withDuration: 0.3, animations: {
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.menubarLeadindContraits.constant = -250
                 self.view.layoutIfNeeded()
-            })
-             menuDisplayed = false
+                self.slideViewMenuButton.transform = CGAffineTransform.identity
+
+                self.menuDisplayed = false
+            }) { (true) in
+                self.menuButton.tintColor = .black
+            }
+            
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.shadowViewTrsilingContraints.constant = -414
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            
         }
     }
 }
