@@ -12,12 +12,24 @@ class SwipeViewController: UIViewController {
     
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!
+    @IBOutlet var menuView: UIView!
+    
+    @IBOutlet var menuButton: UIBarButtonItem!
     var divisorNumber:CGFloat!
+    
+    @IBOutlet var menubarLeadindContraits: NSLayoutConstraint!
+    var menuDisplayed = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // degree of tilt expressed in radian
         divisorNumber = (view.frame.width / 2) / 0.61
         swipeCard.layer.borderWidth = 3
+        
+        menubarLeadindContraits.constant = -207
+        menuView.layer.shadowOpacity = 1
+        menuView.layer.shadowRadius = 5
+        
     }
     func printFunction(){
         print("main view \(view.center.x)")
@@ -31,6 +43,8 @@ class SwipeViewController: UIViewController {
             self.likeDislikeImageView.alpha = 0
             self.swipeCard.alpha = 1
             self.swipeCard.transform = CGAffineTransform.identity
+            self.navigationController?.navigationBar.backgroundColor = .clear
+            self.swipeCard.backgroundColor = .clear
         })
         
     }
@@ -45,24 +59,25 @@ class SwipeViewController: UIViewController {
         panCard.transform = CGAffineTransform(rotationAngle: xFromCenter/divisorNumber)
         
         if xFromCenter > 0{
+            panCard.backgroundColor = .green
             likeDislikeImageView.image = UIImage(named: "thumbsUp")
             likeDislikeImageView.tintColor = .green
             printFunction()
         }else{
+            panCard.backgroundColor = .red
             likeDislikeImageView.image = UIImage(named: "thumbsDown")
             likeDislikeImageView.tintColor = .red
             printFunction()
         }
-   
         
-            if abs(xFromCenter)/view.center.x > 0{
+        
+        if abs(xFromCenter)/view.center.x > 0{
             //panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
-                likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
-            }
+            likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
+        }
         
         if panCard.center.x > 257 || panCard.center.x < 157{
             panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
-           // likeDislikeImageView.alpha = 0.7 + (abs(xFromCenter)/view.center.x)
             
         }
         
@@ -80,7 +95,7 @@ class SwipeViewController: UIViewController {
             }else if panCard.center.x > (view.frame.width){
                 UIView.animate(withDuration: 0.3, animations: {
                     panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
-                  panCard.alpha = 1
+                    panCard.alpha = 1
                     
                 })
                 return
@@ -90,5 +105,22 @@ class SwipeViewController: UIViewController {
         
     }
     
-    
+    @IBAction func menuButtonPressed(_ sender: UIBarButtonItem) {
+        
+        switch menuDisplayed{
+        case false:
+            menubarLeadindContraits.constant = 0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            menuDisplayed = true
+            
+        case true:
+            menubarLeadindContraits.constant = -207
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+             menuDisplayed = false
+        }
+    }
 }

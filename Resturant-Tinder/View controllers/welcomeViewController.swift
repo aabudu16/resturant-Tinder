@@ -14,8 +14,8 @@ class WelcomeViewController: UIViewController {
     var setUserName:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       welcomeLabel.text = setUserName 
+       welcomeLabel.text = setUserName
     }
+    
     
 }

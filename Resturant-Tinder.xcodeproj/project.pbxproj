@@ -18,6 +18,7 @@
 		8500B6AC232D43E800F6378F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */; };
 		8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6AD232D80EA00F6378F /* SwipeViewController.swift */; };
 		85F49A67232E6F120017B21E /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A66232E6F120017B21E /* welcomeViewController.swift */; };
+		85F49A69232E95A80017B21E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A68232E95A80017B21E /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8500B6AD232D80EA00F6378F /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		85F49A66232E6F120017B21E /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
+		85F49A68232E95A80017B21E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */,
 				8500B6AD232D80EA00F6378F /* SwipeViewController.swift */,
 				85F49A66232E6F120017B21E /* welcomeViewController.swift */,
+				85F49A68232E95A80017B21E /* MenuViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				8500B6A8232C487800F6378F /* SignUpViewController.swift in Sources */,
 				8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */,
 				85F49A67232E6F120017B21E /* welcomeViewController.swift in Sources */,
+				85F49A69232E95A80017B21E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
