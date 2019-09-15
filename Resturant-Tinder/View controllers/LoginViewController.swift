@@ -2,7 +2,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var secondVC = EmailSignUpViewController()
+    var secondVC = SignUpViewController()
     let userEmail:String = "aabudu16@yahoo.com"
     let userPassword:String = "Abu123"
     @IBOutlet var pursuitLogo: UIImageView!
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
             guard let emailString = emailTextField.text else {
                 return
             }
-            let vc = EmailSignUpViewController(nibName: "EmailSignUpViewController", bundle: nil)
+            let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
           // vc.emailTextField.text = emailString
             print("signup Test")
         default:

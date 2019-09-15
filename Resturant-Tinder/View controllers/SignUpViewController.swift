@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmailSignUpViewController: UIViewController {
+class SignUpViewController: UIViewController {
     
     var input:String?{
         didSet{
@@ -32,7 +32,7 @@ class EmailSignUpViewController: UIViewController {
         setupAvatorImage()
     }
     private func setupAvatorImage(){
-        avatorImage.layer.cornerRadius = 50
+        avatorImage.layer.cornerRadius = 75
         avatorImage.clipsToBounds = true
         avatorImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
@@ -76,7 +76,6 @@ class EmailSignUpViewController: UIViewController {
         continueButton.setTitleColor(.black, for: .highlighted)
         
         emailTextField.keyboardType = .emailAddress
-        avatorImage.image = UIImage(named: "resturant image")
     }
     
     
@@ -87,7 +86,7 @@ class EmailSignUpViewController: UIViewController {
     }
     
 }
-extension EmailSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
