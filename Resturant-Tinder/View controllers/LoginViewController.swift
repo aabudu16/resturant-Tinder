@@ -5,8 +5,8 @@ class LoginViewController: UIViewController {
     var secondVC = SignUpViewController()
     let userEmail:String = "aabudu16@yahoo.com"
     let userPassword:String = "Abu123"
+    var name:String = ""
     @IBOutlet var pursuitLogo: UIImageView!
-    @IBOutlet var welcomeLabel: UILabel!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordView: UIView!
     @IBOutlet var loginButtonView: UIView!
     @IBOutlet var errorMessageLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,23 +55,25 @@ class LoginViewController: UIViewController {
         
         switch sender.tag{
         case 0:
-            if emailTextField.text != userEmail || passwordTextField.text != userPassword{
-                errorMessageLabel.text = "Invalid Email or Password"
-                errorMessageLabel.alpha = 1
-            }else{
-               errorMessageLabel.text = "Welcome Back"
-                errorMessageLabel.alpha = 1
-            }
-            print("Login Test")
+    
+            self.name = emailTextField.text!
+           // performSegue(withIdentifier: "setNameToWelcomePage", sender: self)
+            
         case 1:
-            guard let emailString = emailTextField.text else {
-                return
-            }
+           
             let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-          // vc.emailTextField.text = emailString
+
             print("signup Test")
         default:
             return
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "setNameToWelcomePage"{
+            let welcomeVC = segue.destination as! WelcomeViewController
+            welcomeVC.setUserName = "Welcome \(String(describing: self.name))"
         }
     }
 }
