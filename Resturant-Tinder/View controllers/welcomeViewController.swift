@@ -19,15 +19,33 @@ class WelcomeViewController: UIViewController {
     @IBOutlet var selectCatergoryButton: UIButton!
     @IBOutlet var welcomeLabel: UILabel!
     
+    //MARK: - IBActions
+    @IBAction func pressedRandomButton(_ sender: UIButton) {
+        let swipeScreenVC = storyboard?.instantiateViewController(withIdentifier: "swipeScreenVC") as! SwipeViewController
+        //TODO: swipeScreenVC.categoriesArray = [All cases of Categories]
+        self.navigationController?.pushViewController(swipeScreenVC, animated: true)
+    }
+    
+    @IBAction func pressedSelectCategoryButton(_ sender: UIButton) {
+        let categoriesSelectionVC = storyboard?.instantiateViewController(withIdentifier: "categoriesSelectionVC") as! CatergoriesViewController
+        self.navigationController?.pushViewController(categoriesSelectionVC, animated: true)
+    }
+    
     //MARK: - Properties
-    var setUserName:String = ""
+    var setUserName:String!
     
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-       welcomeLabel.text = setUserName
+        setUpWelcomeViews()
     }
     
+    //MARK: - Custom Functions
+    private func setUpWelcomeViews() {
+        self.selectCatergoryButton.setTitle("Select Cuisine Types", for: .normal)
+        self.randomButton.setTitle("Surprise Me!", for: .normal)
+        self.welcomeLabel.text = setUserName
+    }
     
     
 }
