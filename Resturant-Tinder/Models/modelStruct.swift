@@ -40,7 +40,56 @@ struct RestarantInfo: Codable {
     
 }
 
-
+struct CuisineCategories {
+    let allCategories = ["American",
+        "Asian Fusion",
+        "Barbeque",
+        "Brazilian",
+        "Breakfast & Brunch",
+        "Burgers",
+        "Cajun/Creole",
+        "Caribbean",
+        "Cheesesteaks",
+        "Chinese",
+        "Creperies",
+        "Cuban",
+        "Delis",
+        "Dumplings",
+        "Fast Food",
+        "Fish & Chips",
+        "French",
+        "Gluten-Free",
+        "Greek",
+        "Halal",
+        "Hot Pot",
+        "Indian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Latin American",
+        "Mexican",
+        "Noodles",
+        "Pizza",
+        "Portuguese",
+        "Salad",
+        "Sandwiches",
+        "Seafood",
+        "Soul Food",
+        "Soup",
+        "Southern",
+        "Steakhouses",
+        "Sushi Bars",
+        "Tapas Bars",
+        "Tex-Mex",
+        "Thai",
+        "Vegan",
+        "Vietnamese",
+        "Waffles",
+        "Wraps"
+    ]
+    
+    private init() {}
+}
 
 
 
