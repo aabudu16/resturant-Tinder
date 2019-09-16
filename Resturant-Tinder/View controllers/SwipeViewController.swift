@@ -219,4 +219,18 @@ class SwipeViewController: UIViewController {
         slideMenuDisplayed = bool
     }
     
+    @IBAction func homeButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func addAllButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func clearAllButtonPreesed(_ sender: UIButton) {
+    }
+    
+    @IBAction func setButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func nextbuttonPressed(_ sender: UIButton) {
+    }
 }
