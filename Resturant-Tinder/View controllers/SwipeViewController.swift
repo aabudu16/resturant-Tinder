@@ -232,5 +232,8 @@ class SwipeViewController: UIViewController {
     }
     
     @IBAction func nextbuttonPressed(_ sender: UIButton) {
+       
+        guard let resturantVC = storyboard?.instantiateViewController(withIdentifier: "ResturantsViewController") as? ResturantsViewController else {return}
+        self.navigationController?.pushViewController(resturantVC , animated: true)
     }
 }
