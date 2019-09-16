@@ -112,14 +112,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3x-Rz-327">
                                 <rect key="frame" x="-39" y="88" width="246" height="774"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvD-e3-rs7">
-                                        <rect key="frame" x="198" y="8" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Rkm-7G-mHM"/>
-                                            <constraint firstAttribute="height" constant="40" id="SuI-17-WE2"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="menu image 2"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJ8-aH-ydb">
                                         <rect key="frame" x="95" y="731" width="70" height="35"/>
                                         <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -131,13 +123,64 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Set"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxt-uT-E1b">
+                                        <rect key="frame" x="198" y="108" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="YeL-Cs-HE6"/>
+                                            <constraint firstAttribute="height" constant="40" id="rlw-t8-hqA"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="home icon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYv-VB-aMc">
+                                        <rect key="frame" x="198" y="208" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="KBH-Si-Umb"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZjA-x2-rPp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="add all"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-jT-Nd5">
+                                        <rect key="frame" x="198" y="308" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FKZ-8M-v4h"/>
+                                            <constraint firstAttribute="width" constant="40" id="O73-YI-x1c"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="clear"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG4-Y1-bxe">
+                                        <rect key="frame" x="201" y="408" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="QLW-KY-zjd"/>
+                                            <constraint firstAttribute="height" constant="40" id="wkC-WF-sTn"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="refresh"/>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvD-e3-rs7">
+                                        <rect key="frame" x="198" y="8" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Rkm-7G-mHM"/>
+                                            <constraint firstAttribute="height" constant="40" id="SuI-17-WE2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="menu image 2"/>
+                                        <connections>
+                                            <action selector="slidweMenuButtonPressed:" destination="7Se-Jt-uVr" eventType="touchUpInside" id="nOK-Ab-BXx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80211952857051771" green="0.79596106195127936" blue="0.99539496723165366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cG4-Y1-bxe" secondAttribute="trailing" constant="5" id="2XG-Nl-eVk"/>
+                                    <constraint firstAttribute="trailing" secondItem="gzd-jT-Nd5" secondAttribute="trailing" constant="8" id="4rs-eb-1pm"/>
+                                    <constraint firstItem="bYv-VB-aMc" firstAttribute="top" secondItem="Wxt-uT-E1b" secondAttribute="bottom" constant="60" id="Bnu-na-PN4"/>
+                                    <constraint firstItem="cG4-Y1-bxe" firstAttribute="top" secondItem="gzd-jT-Nd5" secondAttribute="bottom" constant="60" id="ByF-ko-liY"/>
                                     <constraint firstAttribute="width" constant="246" id="F2U-cG-UfU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wxt-uT-E1b" secondAttribute="trailing" constant="8" id="JRo-Gk-QDW"/>
+                                    <constraint firstAttribute="trailing" secondItem="bYv-VB-aMc" secondAttribute="trailing" constant="8" id="JxX-Cg-wdB"/>
                                     <constraint firstAttribute="height" constant="774" id="WqE-3z-K5h"/>
+                                    <constraint firstItem="Wxt-uT-E1b" firstAttribute="top" secondItem="yvD-e3-rs7" secondAttribute="bottom" constant="60" id="YGb-9M-Y9y"/>
                                     <constraint firstAttribute="bottom" secondItem="SJ8-aH-ydb" secondAttribute="bottom" constant="8" id="apU-g8-8NI"/>
                                     <constraint firstItem="yvD-e3-rs7" firstAttribute="top" secondItem="w3x-Rz-327" secondAttribute="top" constant="8" id="eHY-Wf-7cT"/>
+                                    <constraint firstItem="gzd-jT-Nd5" firstAttribute="top" secondItem="bYv-VB-aMc" secondAttribute="bottom" constant="60" id="icj-pf-ZQN"/>
                                     <constraint firstAttribute="trailing" secondItem="yvD-e3-rs7" secondAttribute="trailing" constant="8" id="mRt-qG-y9p"/>
                                     <constraint firstItem="SJ8-aH-ydb" firstAttribute="centerX" secondItem="w3x-Rz-327" secondAttribute="centerX" constant="7" id="x76-Ae-jnW"/>
                                 </constraints>
@@ -160,7 +203,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="cDN-Rf-iKj">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="menuButtonPressed:" destination="7Se-Jt-uVr" id="G79-3C-FZX"/>
+                                <action selector="navigationMenuButtonPressed:" destination="7Se-Jt-uVr" id="G79-3C-FZX"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" largeContentSizeImage="X" systemItem="refresh" id="e48-H2-zKG">
@@ -168,13 +211,21 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addAllButton" destination="bYv-VB-aMc" id="iNa-HT-BOJ"/>
+                        <outlet property="addAllButtonTopConstraints" destination="Bnu-na-PN4" id="96s-BF-Ts0"/>
+                        <outlet property="clearAll" destination="gzd-jT-Nd5" id="VU9-QI-jrx"/>
+                        <outlet property="clearAllButtonTopConstraints" destination="icj-pf-ZQN" id="ijH-t0-Xjo"/>
+                        <outlet property="homeButton" destination="Wxt-uT-E1b" id="yxI-T9-4S4"/>
+                        <outlet property="homeButtonTopConstraints" destination="YGb-9M-Y9y" id="Mhz-pf-XAX"/>
                         <outlet property="likeDislikeImageView" destination="2XX-iR-f1r" id="thm-hm-Wdt"/>
                         <outlet property="menuButton" destination="cDN-Rf-iKj" id="bVd-9q-63E"/>
                         <outlet property="menuView" destination="w3x-Rz-327" id="h0w-YX-TWi"/>
                         <outlet property="menubarLeadindContraits" destination="sFR-Si-p6R" id="1nZ-Lv-LhQ"/>
+                        <outlet property="reloadButton" destination="cG4-Y1-bxe" id="MRQ-pj-yiT"/>
+                        <outlet property="reloadButtonTopConstraints" destination="ByF-ko-liY" id="wxm-OM-Jrj"/>
                         <outlet property="shadowView" destination="LH6-lo-JoH" id="01D-O6-vrD"/>
-                        <outlet property="shadowViewTrsilingContraints" destination="kON-Fc-HP7" id="8Dz-tZ-vtv"/>
-                        <outlet property="slideViewMenuButton" destination="yvD-e3-rs7" id="7zT-ks-k4X"/>
+                        <outlet property="shadowViewTrailingContraints" destination="kON-Fc-HP7" id="8Dz-tZ-vtv"/>
+                        <outlet property="slideViewMenuButtons" destination="yvD-e3-rs7" id="cUW-P3-Ab0"/>
                         <outlet property="swipeCard" destination="F4a-Uf-gQp" id="a5x-2S-W2j"/>
                     </connections>
                 </viewController>
@@ -231,7 +282,7 @@
                         </userGuides>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resturant image" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
-                                <rect key="frame" x="0.0" y="44" width="414.00000000000011" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-sY-vfc">
                                 <rect key="frame" x="0.0" y="73" width="414" height="789"/>
@@ -750,9 +801,13 @@
     </scenes>
     <resources>
         <image name="X" width="512" height="512"/>
+        <image name="add all" width="200" height="200"/>
+        <image name="clear" width="800" height="800"/>
         <image name="fish" width="600" height="450"/>
+        <image name="home icon" width="200" height="200"/>
         <image name="menu image 2" width="200" height="200"/>
         <image name="profileImage" width="600" height="600"/>
+        <image name="refresh" width="480" height="480"/>
         <image name="resturant image" width="474" height="711"/>
         <image name="thumbsUp" width="512" height="512"/>
     </resources>
