@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		08964360232DE23C00335B9D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896435F232DE23C00335B9D /* Secrets.swift */; };
 		8500B681232C224000F6378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B680232C224000F6378F /* AppDelegate.swift */; };
-		8500B683232C224000F6378F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B682232C224000F6378F /* ViewController.swift */; };
 		8500B686232C224000F6378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8500B684232C224000F6378F /* Main.storyboard */; };
 		8500B688232C224100F6378F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8500B687232C224100F6378F /* Assets.xcassets */; };
 		8500B68B232C224100F6378F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8500B689232C224100F6378F /* LaunchScreen.storyboard */; };
 		8500B696232C224100F6378F /* Resturant_TinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B695232C224100F6378F /* Resturant_TinderTests.swift */; };
+		8500B6A6232C453500F6378F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6A5232C453500F6378F /* LoginViewController.swift */; };
+		8500B6A8232C487800F6378F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6A7232C487700F6378F /* SignUpViewController.swift */; };
+		8500B6AA232C54A200F6378F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6A9232C54A200F6378F /* Secrets.swift */; };
+		8500B6AC232D43E800F6378F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */; };
+		8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B6AD232D80EA00F6378F /* SwipeViewController.swift */; };
+		85F49A67232E6F120017B21E /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A66232E6F120017B21E /* welcomeViewController.swift */; };
+		85F49A69232E95A80017B21E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A68232E95A80017B21E /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +36,6 @@
 		0896435F232DE23C00335B9D /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8500B67D232C224000F6378F /* Resturant-Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resturant-Tinder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8500B680232C224000F6378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8500B682232C224000F6378F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8500B685232C224000F6378F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8500B687232C224100F6378F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8500B68A232C224100F6378F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +43,13 @@
 		8500B691232C224100F6378F /* Resturant-TinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Resturant-TinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8500B695232C224100F6378F /* Resturant_TinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resturant_TinderTests.swift; sourceTree = "<group>"; };
 		8500B697232C224100F6378F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8500B6A5232C453500F6378F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8500B6A7232C487700F6378F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8500B6A9232C54A200F6378F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		8500B6AD232D80EA00F6378F /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		85F49A66232E6F120017B21E /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
+		85F49A68232E95A80017B21E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,7 @@
 				8500B6A3232C2AB400F6378F /* APIClients */,
 				8500B6A4232C2AE500F6378F /* Helper folder */,
 				8500B684232C224000F6378F /* Main.storyboard */,
+				8500B6A9232C54A200F6378F /* Secrets.swift */,
 				8500B687232C224100F6378F /* Assets.xcassets */,
 				8500B689232C224100F6378F /* LaunchScreen.storyboard */,
 				8500B68C232C224100F6378F /* Info.plist */,
@@ -106,7 +119,12 @@
 		8500B6A0232C29DA00F6378F /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8500B682232C224000F6378F /* ViewController.swift */,
+				8500B6A5232C453500F6378F /* LoginViewController.swift */,
+				8500B6A7232C487700F6378F /* SignUpViewController.swift */,
+				8500B6AB232D43E800F6378F /* ForgotPasswordViewController.swift */,
+				8500B6AD232D80EA00F6378F /* SwipeViewController.swift */,
+				85F49A66232E6F120017B21E /* welcomeViewController.swift */,
+				85F49A68232E95A80017B21E /* MenuViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -240,9 +258,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				8500B683232C224000F6378F /* ViewController.swift in Sources */,
 				08964360232DE23C00335B9D /* Secrets.swift in Sources */,
+=======
+				8500B6A6232C453500F6378F /* LoginViewController.swift in Sources */,
+				8500B6AC232D43E800F6378F /* ForgotPasswordViewController.swift in Sources */,
+				8500B6AA232C54A200F6378F /* Secrets.swift in Sources */,
+>>>>>>> b93b143b638cfec3ed2f0256b2799100a95ebe35
 				8500B681232C224000F6378F /* AppDelegate.swift in Sources */,
+				8500B6A8232C487800F6378F /* SignUpViewController.swift in Sources */,
+				8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */,
+				85F49A67232E6F120017B21E /* welcomeViewController.swift in Sources */,
+				85F49A69232E95A80017B21E /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
