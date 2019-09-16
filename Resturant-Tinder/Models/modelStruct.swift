@@ -88,7 +88,7 @@ struct CuisineCategories {
         "Wraps"
     ]
     
-    private init() {}
+    init() {}
 }
 
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class CatergoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    //MARK: Properties
+    let allCategories = CuisineCategories().allCategories
     
     //MARK: - IBOutlets
     @IBOutlet var categoriesTableView: UITableView!
