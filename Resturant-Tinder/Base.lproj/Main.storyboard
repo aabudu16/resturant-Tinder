@@ -35,16 +35,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-Og-bXU">
                                 <rect key="frame" x="27" y="218" width="360" height="240"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-VU-IjO">
-                                        <rect key="frame" x="157" y="105" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-VU-IjO">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="240"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="MJS-VU-IjO" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="top" id="GGb-ZH-PR8"/>
                                     <constraint firstAttribute="width" constant="360" id="X0I-cx-Eab"/>
+                                    <constraint firstItem="MJS-VU-IjO" firstAttribute="leading" secondItem="cRV-Og-bXU" secondAttribute="leading" id="YO1-hY-R4r"/>
                                     <constraint firstAttribute="height" constant="240" id="Z44-Vr-B2u"/>
+                                    <constraint firstAttribute="trailing" secondItem="MJS-VU-IjO" secondAttribute="trailing" id="gDv-Jw-ZfS"/>
+                                    <constraint firstAttribute="bottom" secondItem="MJS-VU-IjO" secondAttribute="bottom" id="td9-c9-cjc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJv-lY-TI8">
@@ -55,18 +58,21 @@
                                     <constraint firstAttribute="height" constant="240" id="exZ-FJ-U2Y"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-Tu-Kxh">
-                                <rect key="frame" x="184" y="651" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-Tu-Kxh">
+                                <rect key="frame" x="9" y="458" width="405" height="404"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68101519349999995" green="0.19593089820000001" blue="0.83926230670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="cRV-Og-bXU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="21O-ow-QM4"/>
+                            <constraint firstItem="I8c-Tu-Kxh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="45z-18-INZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I8c-Tu-Kxh" secondAttribute="bottom" id="52c-9I-VIp"/>
                             <constraint firstItem="dJv-lY-TI8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IWR-dq-XEU"/>
                             <constraint firstItem="dJv-lY-TI8" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="bottom" constant="88" id="KiG-3L-2Yz"/>
+                            <constraint firstItem="I8c-Tu-Kxh" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="bottom" id="UV7-HB-ON2"/>
                             <constraint firstItem="cRV-Og-bXU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="VUB-yy-AjU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I8c-Tu-Kxh" secondAttribute="trailing" id="xAq-lm-MU4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
