@@ -408,7 +408,7 @@
         <!--Resturants View Controller-->
         <scene sceneID="qIf-7R-9uj">
             <objects>
-                <viewController id="dwC-GW-cKx" customClass="ResturantsViewController" customModule="Resturant_Tinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResturantsViewController" id="dwC-GW-cKx" customClass="ResturantsViewController" customModule="Resturant_Tinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ijH-Mh-PlP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
