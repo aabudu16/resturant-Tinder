@@ -6,23 +6,25 @@ import Foundation
 
 struct ResturantAPIClient{
     
-    static func getbusinessesData(completionHandler: @escaping (Result<[RestarantInfo],AppError>) -> () ) {
+   
+    static func getbusinessesData(completionHandler: @escaping (Result<[RestaurantInfo],AppError>) -> () ) {
         let url = "https://api.yelp.com/v3/businesses/search?term=restaurant&location=nyc"
-        
-        NetworkManager.shared.fetchData(urlString: url) { (result) in
+     
+        NetworkHelper.shared.performDataTask(withUrl: url, andMethod: .get) { (result) in
             switch result {
-            case .failure(let error):
-                completionHandler(.failure(error))
-            case .success(let data):
+            case .success(let data) :
                 do {
-                    let businessesData = try JSONDecoder().decode([RestarantInfo].self, from: data)
-                    completionHandler(.success(businessesData))
-                } catch {
-                    completionHandler(.failure(.badJSONError))
-                    
+                let restInfo = try JSONDecoder().decode([RestaurantInfo].self, from: data)
+                completionHandler(.success(restInfo))
                 }
+                catch {
+                    completionHandler(.failure(.badJSONError))
+                }
+            case .failure(let error):
+                completionHandler(.failure(.noDataReceived))
             }
         }
+     
     }
 }
 

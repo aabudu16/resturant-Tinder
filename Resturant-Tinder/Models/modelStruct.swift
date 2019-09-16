@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RestarantInfo: Codable {
+struct RestaurantInfo: Codable {
     let businesses: BusinessesWrapper
     
     
