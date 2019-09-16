@@ -19,6 +19,7 @@ class SwipeViewController: UIViewController {
     var divisorNumber:CGFloat!
     
     
+    @IBOutlet var nameLabel: UILabel!
     
     
     @IBOutlet var homeButtonTopConstraints: NSLayoutConstraint!
@@ -32,7 +33,6 @@ class SwipeViewController: UIViewController {
     var slideMenuDisplayed = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // degree of tilt expressed in radian
         divisorNumber = (view.frame.width / 2) / 0.61
         swipeCard.layer.borderWidth = 3
@@ -64,6 +64,7 @@ class SwipeViewController: UIViewController {
         addAllButton.tintColor = .white
         clearAll.tintColor = .white
         reloadButton.tintColor = .white
+        slideViewMenuButtons.tintColor = .black
     }
     func printFunction(){
         print("main view \(view.center.x)")
@@ -171,11 +172,12 @@ class SwipeViewController: UIViewController {
                 self.menuButton.tintColor = .black
             }
             
-            
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.shadowViewTrailingContraints.constant = -414
                 self.view.layoutIfNeeded()
             }, completion: nil)
+            setupliderMenuButtons(Value: -40, bool: false, alpha: 0, Tranform: .identity, color: .white)
+            slideViewMenuButtons.tintColor = .black
             
         }
     }
@@ -184,7 +186,7 @@ class SwipeViewController: UIViewController {
         
         switch slideMenuDisplayed{
         case false:
-            setupliderMenuButtons(Value: 120, bool: true, alpha: 1, Tranform: .init(rotationAngle: (CGFloat(Double.pi / 2))), color: .blue)
+            setupliderMenuButtons(Value: 60, bool: true, alpha: 1, Tranform: .init(rotationAngle: (CGFloat(Double.pi / 2))), color: .blue)
       slideViewMenuButtons.tintColor = .red
         case true:
             setupliderMenuButtons(Value: -40, bool: false, alpha: 0, Tranform: .identity, color: .white)
@@ -195,6 +197,7 @@ class SwipeViewController: UIViewController {
         
     }
     func setupliderMenuButtons(Value:CGFloat, bool:Bool, alpha:CGFloat, Tranform: CGAffineTransform, color:UIColor){
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.slideViewMenuButtons.transform = Tranform
             self.homeButtonTopConstraints.constant = Value

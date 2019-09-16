@@ -55,9 +55,7 @@ class LoginViewController: UIViewController {
         
         switch sender.tag{
         case 0:
-    
             self.name = emailTextField.text!
-           // performSegue(withIdentifier: "setNameToWelcomePage", sender: self)
             
         case 1:
            
@@ -72,7 +70,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "setNameToWelcomePage"{
-            let welcomeVC = segue.destination as! WelcomeViewController
+            guard let welcomeVC = segue.destination as? WelcomeViewController else{return}
             welcomeVC.setUserName = "Welcome \(String(describing: self.name))"
         }
     }

@@ -32,8 +32,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-Og-bXU">
+                                <rect key="frame" x="27" y="218" width="360" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-VU-IjO">
+                                        <rect key="frame" x="157" y="105" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="X0I-cx-Eab"/>
+                                    <constraint firstAttribute="height" constant="240" id="Z44-Vr-B2u"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJv-lY-TI8">
+                                <rect key="frame" x="27" y="546" width="360" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="Kxn-vK-HRI"/>
+                                    <constraint firstAttribute="height" constant="240" id="exZ-FJ-U2Y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-Tu-Kxh">
+                                <rect key="frame" x="184" y="651" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.68101519349999995" green="0.19593089820000001" blue="0.83926230670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="cRV-Og-bXU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="21O-ow-QM4"/>
+                            <constraint firstItem="dJv-lY-TI8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IWR-dq-XEU"/>
+                            <constraint firstItem="dJv-lY-TI8" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="bottom" constant="88" id="KiG-3L-2Yz"/>
+                            <constraint firstItem="cRV-Og-bXU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="VUB-yy-AjU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="KKS-it-Rcd"/>
@@ -166,6 +200,16 @@
                                             <action selector="slidweMenuButtonPressed:" destination="7Se-Jt-uVr" eventType="touchUpInside" id="nOK-Ab-BXx"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Categories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPy-Ay-wPs">
+                                        <rect key="frame" x="44" y="18" width="146" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="12K-dZ-n8A"/>
+                                            <constraint firstAttribute="height" constant="21" id="rij-k8-jrY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80211952857051771" green="0.79596106195127936" blue="0.99539496723165366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -180,8 +224,10 @@
                                     <constraint firstItem="Wxt-uT-E1b" firstAttribute="top" secondItem="yvD-e3-rs7" secondAttribute="bottom" constant="60" id="YGb-9M-Y9y"/>
                                     <constraint firstAttribute="bottom" secondItem="SJ8-aH-ydb" secondAttribute="bottom" constant="8" id="apU-g8-8NI"/>
                                     <constraint firstItem="yvD-e3-rs7" firstAttribute="top" secondItem="w3x-Rz-327" secondAttribute="top" constant="8" id="eHY-Wf-7cT"/>
+                                    <constraint firstItem="yvD-e3-rs7" firstAttribute="leading" secondItem="lPy-Ay-wPs" secondAttribute="trailing" constant="8" id="ehA-b0-lxT"/>
                                     <constraint firstItem="gzd-jT-Nd5" firstAttribute="top" secondItem="bYv-VB-aMc" secondAttribute="bottom" constant="60" id="icj-pf-ZQN"/>
                                     <constraint firstAttribute="trailing" secondItem="yvD-e3-rs7" secondAttribute="trailing" constant="8" id="mRt-qG-y9p"/>
+                                    <constraint firstItem="lPy-Ay-wPs" firstAttribute="top" secondItem="w3x-Rz-327" secondAttribute="top" constant="18" id="naE-rV-wYp"/>
                                     <constraint firstItem="SJ8-aH-ydb" firstAttribute="centerX" secondItem="w3x-Rz-327" secondAttribute="centerX" constant="7" id="x76-Ae-jnW"/>
                                 </constraints>
                             </view>
@@ -221,6 +267,7 @@
                         <outlet property="menuButton" destination="cDN-Rf-iKj" id="bVd-9q-63E"/>
                         <outlet property="menuView" destination="w3x-Rz-327" id="h0w-YX-TWi"/>
                         <outlet property="menubarLeadindContraits" destination="sFR-Si-p6R" id="1nZ-Lv-LhQ"/>
+                        <outlet property="nameLabel" destination="lPy-Ay-wPs" id="WHn-jA-3Vg"/>
                         <outlet property="reloadButton" destination="cG4-Y1-bxe" id="MRQ-pj-yiT"/>
                         <outlet property="reloadButtonTopConstraints" destination="ByF-ko-liY" id="wxm-OM-Jrj"/>
                         <outlet property="shadowView" destination="LH6-lo-JoH" id="01D-O6-vrD"/>
@@ -236,7 +283,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7636.2318840579719" y="0.6696428571428571"/>
+            <point key="canvasLocation" x="6533" y="1"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qIf-7R-9uj">
@@ -282,7 +329,7 @@
                         </userGuides>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resturant image" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414.00000000000011" height="818"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-sY-vfc">
                                 <rect key="frame" x="0.0" y="73" width="414" height="789"/>
@@ -796,7 +843,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zg-1Z-xbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6954" y="-10"/>
+            <point key="canvasLocation" x="5655" y="1"/>
         </scene>
     </scenes>
     <resources>
