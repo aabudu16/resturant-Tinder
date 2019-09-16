@@ -8,25 +8,45 @@
 
 import UIKit
 
-class CatergoriesViewController: UIViewController {
+class CatergoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //MARK: - IBOutlets
     @IBOutlet var categoriesTableView: UITableView!
-    
     @IBOutlet var continueButton: UIButton!
     @IBOutlet var selectButton: UIBarButtonItem!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-   
+    //MARK: - IBActions
     @IBAction func selectbuttonPressed(_ sender: UIBarButtonItem) {
+        
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
+        
     }
     
+    //MARK: - LifeCycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureCategoriesTableView()
+    }
+    
+    //MARK: - DataSource Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //TODO: Define numRows
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //TODO: Define tableViewCell
+        return UITableViewCell()
+    }
+    
+    //MARK: - Delegate Methods
+    
+    //MARK: - Custom Functions
+    private func configureCategoriesTableView() {
+        self.categoriesTableView.dataSource = self
+        self.categoriesTableView.delegate = self
+    }
 
 }
