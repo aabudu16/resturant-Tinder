@@ -42,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4EE7BD61232FE29000A2B373 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		4EE7BD6723302C9A00A2B373 /* TeamAPIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAPIKeys.swift; sourceTree = "<group>"; };
 		4EE7BD6923312F5100A2B373 /* imageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHelper.swift; sourceTree = "<group>"; };
 		8500B67D232C224000F6378F /* Resturant-Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resturant-Tinder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +91,6 @@
 		8500B674232C224000F6378F = {
 			isa = PBXGroup;
 			children = (
-				4EE7BD61232FE29000A2B373 /* Secrets.swift */,
 				8500B67F232C224000F6378F /* Resturant-Tinder */,
 				8500B694232C224100F6378F /* Resturant-TinderTests */,
 				8500B67E232C224000F6378F /* Products */,

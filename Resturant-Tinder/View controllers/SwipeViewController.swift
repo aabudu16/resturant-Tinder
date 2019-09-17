@@ -2,9 +2,7 @@
 import UIKit
 
 class SwipeViewController: UIViewController {
-    //MARK: Properties
-    var userChosenCategories: [String]!
-    
+
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!
     @IBOutlet var menuView: UIView!
@@ -33,11 +31,15 @@ class SwipeViewController: UIViewController {
     @IBOutlet var menubarLeadindContraits: NSLayoutConstraint!
     var menuDisplayed = false
     var slideMenuDisplayed = false
+    
+    @IBOutlet var mainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // degree of tilt expressed in radian
         divisorNumber = (view.frame.width / 2) / 0.61
         swipeCard.layer.borderWidth = 3
+        swipeCard.layer.cornerRadius = 10
+        foodImage.layer.cornerRadius = 10
         
         menubarLeadindContraits.constant = -250
         menuView.layer.shadowOpacity = 1
@@ -47,46 +49,27 @@ class SwipeViewController: UIViewController {
         shadowView.backgroundColor = UIColor(white: 0, alpha: 0.2)
         shadowView.layer.shadowOpacity = 1
         shadowView.layer.shadowRadius = 5
-        
         sliderMenuButtonInitialState()
+        createCardStack()
+
+        
     }
     
-    func sliderMenuButtonInitialState(){
-        homeButtonTopConstraints.constant = -40
-        addAllButtonTopConstraints.constant = -40
-        clearAllButtonTopConstraints.constant = -40
-        reloadButtonTopConstraints.constant = -40
-        
-        homeButton.alpha = 0
-        addAllButton.alpha = 0
-        clearAll.alpha = 0
-        reloadButton.alpha = 0
-        
-        homeButton.tintColor = .white
-        addAllButton.tintColor = .white
-        clearAll.tintColor = .white
-        reloadButton.tintColor = .white
-        slideViewMenuButtons.tintColor = .black
+    private func createCardStack(){
+        var newCard = UIView()
+        (0...10).forEach { (_) in
+            let newGuesture = UIPanGestureRecognizer(target: self, action: #selector(panCardSwipe(_:)))
+            newCard = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+            newCard.center = self.view.center
+            newCard.addGestureRecognizer(newGuesture)
+            newCard.backgroundColor = .blue
+            view.addSubview(newCard)
+        }
     }
-    func printFunction(){
-        print("main view \(view.center.x)")
-        print("panCard \(swipeCard.center.x)")
-        print("view.frame.width \(view.frame.width)")
-        print( "Like and dislike aplha" + "\(likeDislikeImageView.alpha)")
-    }
-    func resetPanCard(){
-        UIView.animate(withDuration: 0.2, animations: {
-            self.swipeCard.center = self.view.center
-            self.likeDislikeImageView.alpha = 0
-            self.swipeCard.alpha = 1
-            self.swipeCard.transform = CGAffineTransform.identity
-            self.navigationController?.navigationBar.backgroundColor = .clear
-            self.swipeCard.backgroundColor = .clear
-        })
-        
-    }
+    
     @IBAction func panCardSwipe(_ sender: UIPanGestureRecognizer) {
-        let panCard = sender.view!
+        guard let panCard = sender.view else {return}
+        
         let fingerPoint = sender.translation(in: view)
         // line 25 allows us to know which direction the view is being dragged to. if the xFromCenter is positive then its to the right. if the xFromCenter is nagative then its to the left.
         let xFromCenter = panCard.center.x - view.center.x
@@ -109,7 +92,6 @@ class SwipeViewController: UIViewController {
         
         
         if abs(xFromCenter)/view.center.x > 0{
-            //panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
             likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
         }
         
@@ -117,26 +99,15 @@ class SwipeViewController: UIViewController {
             panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
         }
         
-        //recenter the view when finger is off
-        if sender.state == UIGestureRecognizer.State.ended{
-            //one
-            if panCard.center.x < 75{
-                UIView.animate(withDuration: 2, animations: {
-                    panCard.center = CGPoint(x: panCard.center.x - 400, y: panCard.center.y + 100)
-                    panCard.alpha = 0
-                    
-                })
-                return
-                // or two
-            }else if panCard.center.x > (view.frame.width){
-                UIView.animate(withDuration: 0.3, animations: {
-                    panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
-                    panCard.alpha = 1
-                    
-                })
-                return
-            }
-            resetPanCard()
+        
+        switch sender.state{
+        case .changed:
+            
+            panCardChangedState(panCard)
+        case .ended:            
+           panCardReset(panCard)
+        default:
+            ()
         }
     }
     
@@ -145,7 +116,7 @@ class SwipeViewController: UIViewController {
         switch menuDisplayed{
         case false:
             // animates the menu view
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.menubarLeadindContraits.constant = -20
                 
                 self.view.layoutIfNeeded()
@@ -156,7 +127,7 @@ class SwipeViewController: UIViewController {
             }
             
             // animates the shadow view
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.shadowViewTrailingContraints.constant = 0
                 self.view.layoutIfNeeded()
             }, completion: nil)
@@ -189,16 +160,16 @@ class SwipeViewController: UIViewController {
         switch slideMenuDisplayed{
         case false:
             setupliderMenuButtons(Value: 60, bool: true, alpha: 1, Tranform: .init(rotationAngle: (CGFloat(Double.pi / 2))), color: .blue)
-      slideViewMenuButtons.tintColor = .red
+            slideViewMenuButtons.tintColor = .red
         case true:
             setupliderMenuButtons(Value: -40, bool: false, alpha: 0, Tranform: .identity, color: .white)
-     slideViewMenuButtons.tintColor = .black
+            slideViewMenuButtons.tintColor = .black
         }
         
         
         
     }
-    func setupliderMenuButtons(Value:CGFloat, bool:Bool, alpha:CGFloat, Tranform: CGAffineTransform, color:UIColor){
+    private func setupliderMenuButtons(Value:CGFloat, bool:Bool, alpha:CGFloat, Tranform: CGAffineTransform, color:UIColor){
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.slideViewMenuButtons.transform = Tranform
@@ -234,8 +205,63 @@ class SwipeViewController: UIViewController {
     }
     
     @IBAction func nextbuttonPressed(_ sender: UIButton) {
-       
+        
         guard let resturantVC = storyboard?.instantiateViewController(withIdentifier: "ResturantsViewController") as? ResturantsViewController else {return}
         self.navigationController?.pushViewController(resturantVC , animated: true)
+    }
+    
+    private  func panCardChangedState(_ panCard:UIView){
+        if panCard.center.x < (view.frame.width - 414){
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                panCard.center = CGPoint(x: panCard.center.x - 100, y: panCard.center.y )
+                panCard.alpha = 0
+                panCard.removeFromSuperview()
+
+            })
+            return
+            
+        }else if panCard.center.x > (view.frame.width){
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
+                panCard.alpha = 1
+                panCard.removeFromSuperview()
+            })
+        }
+    }
+    
+    private func panCardReset(_ panCard:UIView){
+        UIView.animate(withDuration: 0.2, animations: {
+            panCard.center = self.view.center
+            self.likeDislikeImageView.alpha = 0
+            panCard.alpha = 1
+            panCard.transform = CGAffineTransform.identity
+            panCard.backgroundColor = .clear
+        })
+    }
+    
+    private func sliderMenuButtonInitialState(){
+        homeButtonTopConstraints.constant = -40
+        addAllButtonTopConstraints.constant = -40
+        clearAllButtonTopConstraints.constant = -40
+        reloadButtonTopConstraints.constant = -40
+        
+        homeButton.alpha = 0
+        addAllButton.alpha = 0
+        clearAll.alpha = 0
+        reloadButton.alpha = 0
+        
+        homeButton.tintColor = .white
+        addAllButton.tintColor = .white
+        clearAll.tintColor = .white
+        reloadButton.tintColor = .white
+        slideViewMenuButtons.tintColor = .black
+    }
+    private  func printFunction(){
+        print("main view \(view.center.x)")
+        print("panCard \(swipeCard.center.x)")
+        print("view.frame.width \(view.frame.width)")
+        print( "Like and dislike aplha" + "\(likeDislikeImageView.alpha)")
     }
 }
