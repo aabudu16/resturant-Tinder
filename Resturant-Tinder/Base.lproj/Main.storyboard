@@ -34,6 +34,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-VU-IjO">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="240"/>
                                         <state key="normal" title="selectCatergoryButton"/>
+                                        <connections>
+                                            <action selector="pressedSelectCategoryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s4P-U7-1Jc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,6 +60,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-Tu-Kxh">
                                 <rect key="frame" x="9" y="458" width="405" height="404"/>
                                 <state key="normal" title="randomButton"/>
+                                <connections>
+                                    <action selector="pressedRandomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yae-HB-hLx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a seclection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5od-p9-MK4">
                                 <rect key="frame" x="70" y="138" width="274" height="21"/>
