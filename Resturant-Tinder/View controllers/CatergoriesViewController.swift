@@ -47,7 +47,6 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
                     for index in 0..<self.relatedBusinesses.count {
                         self.businessesAndImages.append((self.relatedBusinesses[index], self.imagesForBusinesses[index]))
                     }
-                    print(self.relatedBusinesses)
                     let swipeScreenVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
                     swipeScreenVC.businessesWithImages = self.businessesAndImages.shuffled()
                     self.navigationController?.pushViewController(swipeScreenVC, animated: true)
@@ -55,8 +54,6 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
             }
            
         }
-        //combine businesses with respective image
-        
     }
     
     //MARK: - LifeCycle Methods
@@ -106,9 +103,9 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = categoriesTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
         let currentCategory = allCategories[indexPath.row]
         cell.textLabel?.text = currentCategory
-        if chosenCategories == allCategories {
+        if chosenCategories.contains(currentCategory) {
             cell.detailTextLabel?.text = "\u{2713}"
-        } else if chosenCategories.isEmpty {
+        } else {
             cell.detailTextLabel?.text = ""
         }
         return cell
