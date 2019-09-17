@@ -3,6 +3,7 @@ import UIKit
 
 class SwipeViewController: UIViewController {
     
+    @IBOutlet var foodImage: UIImageView!
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!
     @IBOutlet var menuView: UIView!
@@ -47,6 +48,7 @@ class SwipeViewController: UIViewController {
         shadowView.layer.shadowRadius = 5
         
         sliderMenuButtonInitialState()
+        
     }
     
     func sliderMenuButtonInitialState(){
@@ -78,7 +80,7 @@ class SwipeViewController: UIViewController {
             self.likeDislikeImageView.alpha = 0
             self.swipeCard.alpha = 1
             self.swipeCard.transform = CGAffineTransform.identity
-            self.navigationController?.navigationBar.backgroundColor = .clear
+            
             self.swipeCard.backgroundColor = .clear
         })
         
@@ -107,7 +109,6 @@ class SwipeViewController: UIViewController {
         
         
         if abs(xFromCenter)/view.center.x > 0{
-            //panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
             likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
         }
         
@@ -115,26 +116,14 @@ class SwipeViewController: UIViewController {
             panCard.alpha = 1 - (abs(xFromCenter)/view.center.x)
         }
         
-        //recenter the view when finger is off
-        if sender.state == UIGestureRecognizer.State.ended{
-            //one
-            if panCard.center.x < 75{
-                UIView.animate(withDuration: 2, animations: {
-                    panCard.center = CGPoint(x: panCard.center.x - 400, y: panCard.center.y + 100)
-                    panCard.alpha = 0
-                    
-                })
-                return
-                // or two
-            }else if panCard.center.x > (view.frame.width){
-                UIView.animate(withDuration: 0.3, animations: {
-                    panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
-                    panCard.alpha = 1
-                    
-                })
-                return
-            }
-            resetPanCard()
+        
+        switch sender.state{
+        case .changed:
+            panCardChangedState(panCard: panCard)
+        case .ended:
+            panCardEndState()
+        default:
+            ()
         }
     }
     
@@ -187,10 +176,10 @@ class SwipeViewController: UIViewController {
         switch slideMenuDisplayed{
         case false:
             setupliderMenuButtons(Value: 60, bool: true, alpha: 1, Tranform: .init(rotationAngle: (CGFloat(Double.pi / 2))), color: .blue)
-      slideViewMenuButtons.tintColor = .red
+            slideViewMenuButtons.tintColor = .red
         case true:
             setupliderMenuButtons(Value: -40, bool: false, alpha: 0, Tranform: .identity, color: .white)
-     slideViewMenuButtons.tintColor = .black
+            slideViewMenuButtons.tintColor = .black
         }
         
         
@@ -232,8 +221,37 @@ class SwipeViewController: UIViewController {
     }
     
     @IBAction func nextbuttonPressed(_ sender: UIButton) {
-       
+        
         guard let resturantVC = storyboard?.instantiateViewController(withIdentifier: "ResturantsViewController") as? ResturantsViewController else {return}
         self.navigationController?.pushViewController(resturantVC , animated: true)
+    }
+    
+    func panCardChangedState(panCard:UIView){
+        if panCard.center.x < (view.frame.width - 414){
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                panCard.center = CGPoint(x: panCard.center.x - 100, y: panCard.center.y )
+                panCard.alpha = 0
+            })
+            return
+            
+        }else if panCard.center.x > (view.frame.width){
+            
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
+                panCard.alpha = 1
+            })
+        }
+    }
+    
+    func panCardEndState(){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.swipeCard.center = self.view.center
+            self.likeDislikeImageView.alpha = 0
+            self.swipeCard.alpha = 1
+            self.swipeCard.transform = CGAffineTransform.identity
+            
+            self.swipeCard.backgroundColor = .clear
+        })
     }
 }

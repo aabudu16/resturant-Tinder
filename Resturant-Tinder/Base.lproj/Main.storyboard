@@ -381,6 +381,7 @@
                         <outlet property="addAllButtonTopConstraints" destination="Bnu-na-PN4" id="96s-BF-Ts0"/>
                         <outlet property="clearAll" destination="gzd-jT-Nd5" id="VU9-QI-jrx"/>
                         <outlet property="clearAllButtonTopConstraints" destination="icj-pf-ZQN" id="ijH-t0-Xjo"/>
+                        <outlet property="foodImage" destination="Psm-jT-mjQ" id="0jd-nJ-nCU"/>
                         <outlet property="homeButton" destination="Wxt-uT-E1b" id="yxI-T9-4S4"/>
                         <outlet property="homeButtonTopConstraints" destination="YGb-9M-Y9y" id="Mhz-pf-XAX"/>
                         <outlet property="likeDislikeImageView" destination="2XX-iR-f1r" id="thm-hm-Wdt"/>
@@ -637,7 +638,7 @@
                         </userGuides>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resturant image" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414.00000000000011" height="818"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-sY-vfc">
                                 <rect key="frame" x="0.0" y="73" width="414" height="789"/>
