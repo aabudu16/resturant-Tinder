@@ -20,11 +20,20 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: - IBActions
     @IBAction func selectbuttonPressed(_ sender: UIBarButtonItem) {
-        
+        if sender.title == "Select All" {
+            chosenCategories = allCategories
+            sender.title = "Deselect All"
+        } else {
+            chosenCategories = [String]()
+            sender.title = "Select All"
+        }
+        categoriesTableView.reloadData()
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        
+        let swipeScreenVC = storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
+        //TODO: swipeScreenVC.categoriesArray = [All cases of Categories]
+        self.navigationController?.pushViewController(swipeScreenVC, animated: true)
     }
     
     //MARK: - LifeCycle Methods
