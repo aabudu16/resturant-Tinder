@@ -34,39 +34,69 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        let swipeScreenVC = storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
-        //TODO: swipeScreenVC.categoriesArray = [All cases of Categories]
-        self.navigationController?.pushViewController(swipeScreenVC, animated: true)
+        //get businesses for each category
+        for category in chosenCategories {
+            let formattedCategory = category.replacingOccurrences(of: " ", with: "")
+            getBusinesses(for: formattedCategory)
+        }
+        //get images for each business
+        for business in relatedBusinesses {
+            DispatchQueue.global().async {
+                self.getImagesFromBusiness(imageURL: business.image_url)
+                DispatchQueue.main.async {
+                    for index in 0..<self.relatedBusinesses.count {
+                        self.businessesAndImages.append((self.relatedBusinesses[index], self.imagesForBusinesses[index]))
+                    }
+                    print(self.relatedBusinesses)
+                    let swipeScreenVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
+                    swipeScreenVC.businessesWithImages = self.businessesAndImages.shuffled()
+                    self.navigationController?.pushViewController(swipeScreenVC, animated: true)
+                }
+            }
+           
+        }
+        //combine businesses with respective image
+        
     }
     
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCategoriesTableView()
-        loaddata()
-        
     }
     
-
-    private func loaddata() {
-        ResturantAPIClient.getbusinessesData { (result) in
+    //MARK: - Custom Functions
+    private func configureCategoriesTableView() {
+        self.categoriesTableView.dataSource = self
+        self.categoriesTableView.delegate = self
+    }
+    
+    private func getBusinesses(for category: String) {
+        ResturantAPIClient.getbusinessesData(categorySearch: category) { (result) in
             DispatchQueue.main.async {
                 switch result{
                 case .success( let allbiz ):
-                    print(allbiz.count)
+                    self.relatedBusinesses += allbiz
                 case .failure( let error):
                     print(error)
                 }
             }
         }
     }
-
-    //MARK: - Custom Functions
-    private func configureCategoriesTableView() {
-        self.categoriesTableView.dataSource = self
-        self.categoriesTableView.delegate = self
+    
+    private func getImagesFromBusiness(imageURL: String) {
+        ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.imagesForBusinesses.append(image)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
-
+    
     //MARK: - DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allCategories.count
