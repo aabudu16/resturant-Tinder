@@ -7,51 +7,52 @@
 //
 
 import Foundation
-class NetworkManager {
-    
-    // TODO: update this to cache
-    private init() {}
-    
-    /// singleton
-    static let shared = NetworkManager()
-    
-    //Performs GET requests for any URL
-    //Parameters: URL as a string
-    //Completion: Result with Data in success, AppError in failure
-    
-    func fetchData(urlString: String,  completionHandler: @escaping (Result<Data,AppError>) -> ()) {
-        guard let url = URL(string: urlString) else {
-            completionHandler(.failure(.badUrl))
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                completionHandler(.failure(.networkError))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.noDataError))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse else {
-                completionHandler(.failure(.badHTTPResponse))
-                return
-            }
-            
-            switch response.statusCode {
-            case 404:
-                completionHandler(.failure(.notFound))
-            case 401,403:
-                completionHandler(.failure(.unauthorized))
-            case 200...299:
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+}
+
+class NetworkHelper {
+    // MARK: - Static Properties
+    static let shared = NetworkHelper()
+    // MARK: - Internal Properties
+    func performDataTask(withUrl urlStr: String,
+                         andHTTPBody body: Data? = nil,
+                         andMethod httpMethod: HTTPMethod,
+                         completionHandler: @escaping ((Result<Data, AppError>) -> Void)) {
+        guard let url = URL(string: urlStr) else { completionHandler(.failure(.badUrl)); return }
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+        request.httpBody = body
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(TeamAPIKeys.tiaAPIKey)", forHTTPHeaderField: "Authorization")
+        urlSession.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    completionHandler(.failure(.noDataReceived))
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, (200...299) ~= response.statusCode else {
+                    completionHandler(.failure(.badStatusCode))
+                    return
+                }
+                if let error = error {
+                    let error = error as NSError
+                    if error.domain == NSURLErrorDomain && error.code == NSURLErrorNotConnectedToInternet {
+                        completionHandler(.failure(.noInternetConnection))
+                        return
+                    } else {
+                        completionHandler(.failure(.other(rawError: error)))
+                        return
+                    }
+                }
                 completionHandler(.success(data))
-            default:
-                completionHandler(.failure(.other(errorDescription: "Wrong Status Code")))
             }
             }.resume()
     }
+    // MARK: - Private Properties and Initializers
+    private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
+    private init() {}
 }
 

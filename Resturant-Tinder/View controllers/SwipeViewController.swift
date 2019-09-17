@@ -3,7 +3,6 @@ import UIKit
 
 class SwipeViewController: UIViewController {
 
-    @IBOutlet var foodImage: UIImageView!
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!
     @IBOutlet var menuView: UIView!
