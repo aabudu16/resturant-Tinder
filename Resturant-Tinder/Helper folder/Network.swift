@@ -21,7 +21,7 @@ class NetworkHelper {
                          andHTTPBody body: Data? = nil,
                          andMethod httpMethod: HTTPMethod,
                          completionHandler: @escaping ((Result<Data, AppError>) -> Void)) {
-        let url = URL(string: urlStr)!
+        guard let url = URL(string: urlStr) else { completionHandler(.failure(.badUrl)); return }
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.httpBody = body
