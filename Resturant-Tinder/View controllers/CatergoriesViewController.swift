@@ -57,6 +57,11 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = categoriesTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
         let currentCategory = allCategories[indexPath.row]
         cell.textLabel?.text = currentCategory
+        if chosenCategories == allCategories {
+            cell.detailTextLabel?.text = "\u{2713}"
+        } else if chosenCategories.isEmpty {
+            cell.detailTextLabel?.text = ""
+        }
         return cell
     }
     
@@ -66,10 +71,10 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
         
         if chosenCategories.contains(currentCategory) {
             chosenCategories = chosenCategories.filter { $0 != currentCategory }
-            categoriesTableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.clear
+            categoriesTableView.cellForRow(at: indexPath)?.detailTextLabel?.text = ""
         } else {
             chosenCategories.append(currentCategory)
-            categoriesTableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.green
+            categoriesTableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "\u{2713}"
         }
     }
     
