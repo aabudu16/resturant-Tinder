@@ -12,6 +12,9 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     //MARK: Properties
     let allCategories = CuisineCategories().allCategories
     var chosenCategories = [String]()
+    var relatedBusinesses = [BusinessesWrapper]()
+    var imagesForBusinesses = [UIImage]()
+    var businessesAndImages = [(BusinessesWrapper, UIImage)]()
     
     //MARK: - IBOutlets
     @IBOutlet var categoriesTableView: UITableView!
