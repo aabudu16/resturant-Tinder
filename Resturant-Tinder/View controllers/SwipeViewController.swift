@@ -3,7 +3,7 @@ import UIKit
 
 class SwipeViewController: UIViewController {
     //MARK: Properties
-    var businessesWithImages: [(BusinessesWrapper, UIImage)]!
+    var userChosenCategories: [String]!
     
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!

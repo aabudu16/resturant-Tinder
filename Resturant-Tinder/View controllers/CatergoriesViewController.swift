@@ -55,25 +55,48 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
         self.categoriesTableView.delegate = self
     }
     
-    private func getBusinesses(for category: String) {
-        ResturantAPIClient.getbusinessesData(categorySearch: category) { (result) in
+    private func getBusinesses() {
+        print("Getting businesses")
+        print("Chosen categories count: \(chosenCategories.count)")
+        guard let searchTerm = chosenCategories.popLast() else { return }
+        print("the search term is \(searchTerm)")
+        ResturantAPIClient.getbusinessesData(categorySearch: searchTerm) { (result) in
             DispatchQueue.main.async {
                 switch result{
-                case .success( let allbiz ):
+                case .success(let allbiz):
+                    print("Success: got \(allbiz)")
                     self.relatedBusinesses += allbiz
-                case .failure( let error):
+                    if self.chosenCategories.isEmpty {
+                        dump(self.relatedBusinesses)
+                        //full array done
+//                        self.getImagesFromBusinesses()SwipeViewController
+                        return
+                    } else {
+                        print("recursively calling get businesses: current cat count: \(self.chosenCategories.count)")
+                        self.getBusinesses()
+                    }
+                    
+                case .failure(let error):
                     print(error)
                 }
             }
         }
     }
     
-    private func getImagesFromBusiness(imageURL: String) {
-        ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
+    private func getImagesFromBusinesses() {
+        var copyOfRelatedBusinesses = self.relatedBusinesses
+        guard let businessOfInterest = copyOfRelatedBusinesses.popLast() else { return }
+        ImageHelper.shared.getImage(urlStr: businessOfInterest.image_url) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let image):
                     self.imagesForBusinesses.append(image)
+                    if copyOfRelatedBusinesses.isEmpty {
+                        dump(self.imagesForBusinesses)
+                        return
+                    } else {
+                        self.getImagesFromBusinesses()
+                    }
                 case .failure(let error):
                     print(error)
                 }
