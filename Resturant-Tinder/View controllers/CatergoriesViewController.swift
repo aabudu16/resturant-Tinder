@@ -33,23 +33,37 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
         configureCategoriesTableView()
     }
     
-    //MARK: - DataSource Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Define numRows
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Define tableViewCell
-        return UITableViewCell()
-    }
-    
-    //MARK: - Delegate Methods
-    
     //MARK: - Custom Functions
     private func configureCategoriesTableView() {
         self.categoriesTableView.dataSource = self
         self.categoriesTableView.delegate = self
     }
+    
+    //MARK: - DataSource Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allCategories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = categoriesTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        let currentCategory = allCategories[indexPath.row]
+        cell.textLabel?.text = currentCategory
+        return cell
+    }
+    
+    //MARK: - Delegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCategory = allCategories[indexPath.row]
+        
+        if chosenCategories.contains(currentCategory) {
+            chosenCategories = chosenCategories.filter { $0 != currentCategory }
+            categoriesTableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.clear
+        } else {
+            chosenCategories.append(currentCategory)
+            categoriesTableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.green
+        }
+    }
+    
+    
 
 }
