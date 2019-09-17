@@ -11,6 +11,7 @@ import UIKit
 class CatergoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: Properties
     let allCategories = CuisineCategories().allCategories
+    var chosenCategories = [String]()
     
     //MARK: - IBOutlets
     @IBOutlet var categoriesTableView: UITableView!
