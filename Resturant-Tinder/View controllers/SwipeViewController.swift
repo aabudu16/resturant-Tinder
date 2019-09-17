@@ -2,6 +2,8 @@
 import UIKit
 
 class SwipeViewController: UIViewController {
+    //MARK: Properties
+    var businessesWithImages: [(BusinessesWrapper, UIImage)]!
     
     @IBOutlet var likeDislikeImageView: UIImageView!
     @IBOutlet var swipeCard: UIView!
