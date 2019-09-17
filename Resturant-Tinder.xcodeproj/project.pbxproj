@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4EE7BD62232FE29000A2B373 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7BD61232FE29000A2B373 /* Secrets.swift */; };
 		4EE7BD6823302C9A00A2B373 /* TeamAPIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7BD6723302C9A00A2B373 /* TeamAPIKeys.swift */; };
+		4EE7BD6A23312F5100A2B373 /* imageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7BD6923312F5100A2B373 /* imageHelper.swift */; };
 		8500B681232C224000F6378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500B680232C224000F6378F /* AppDelegate.swift */; };
 		8500B686232C224000F6378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8500B684232C224000F6378F /* Main.storyboard */; };
 		8500B688232C224100F6378F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8500B687232C224100F6378F /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		4EE7BD61232FE29000A2B373 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		4EE7BD6723302C9A00A2B373 /* TeamAPIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAPIKeys.swift; sourceTree = "<group>"; };
+		4EE7BD6923312F5100A2B373 /* imageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHelper.swift; sourceTree = "<group>"; };
 		8500B67D232C224000F6378F /* Resturant-Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resturant-Tinder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8500B680232C224000F6378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8500B685232C224000F6378F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				85F49A7623301CB80017B21E /* APPErrors.swift */,
 				85F49A7823301CD70017B21E /* Network.swift */,
+				4EE7BD6923312F5100A2B373 /* imageHelper.swift */,
 			);
 			path = "Helper folder";
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				85F49A71232FF8B80017B21E /* ResturantTableViewCell.swift in Sources */,
 				85F49A7523301C7E0017B21E /* modelStruct.swift in Sources */,
 				8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */,
+				4EE7BD6A23312F5100A2B373 /* imageHelper.swift in Sources */,
 				85F49A6B232FDDD40017B21E /* CatergoriesViewController.swift in Sources */,
 				85F49A6D232FE1E30017B21E /* ResturantsViewController.swift in Sources */,
 				85F49A7B23301F420017B21E /* ResturantAPIClient.swift in Sources */,
