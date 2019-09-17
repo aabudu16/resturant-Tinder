@@ -22,7 +22,7 @@ struct BusinessesWrapper : Codable {
     let review_count: Int
     let categories: [CatWrapper]
     let rating: Double?
-    let price: String
+    let price: String?
     let location: locationWrapper
 }
     
