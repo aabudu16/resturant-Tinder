@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food2" translatesAutoresizingMaskIntoConstraints="NO" id="5Gv-kA-O9V">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oq1-de-e41">
                                 <rect key="frame" x="70" y="109" width="274" height="21"/>
                                 <constraints>
@@ -25,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="21" id="hGQ-a3-zQf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-Og-bXU">
@@ -65,24 +68,35 @@
                                     <constraint firstAttribute="width" constant="274" id="nze-Qb-kEw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WhaCHEWant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnZ-yF-vg9">
+                                <rect key="frame" x="27" y="478" width="360" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.68101519349999995" green="0.19593089820000001" blue="0.83926230670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="cRV-Og-bXU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="21O-ow-QM4"/>
                             <constraint firstItem="I8c-Tu-Kxh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="45z-18-INZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I8c-Tu-Kxh" secondAttribute="bottom" id="52c-9I-VIp"/>
+                            <constraint firstItem="5Gv-kA-O9V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EU6-q4-JTc"/>
                             <constraint firstItem="dJv-lY-TI8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IWR-dq-XEU"/>
                             <constraint firstItem="dJv-lY-TI8" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="bottom" constant="88" id="KiG-3L-2Yz"/>
                             <constraint firstItem="5od-p9-MK4" firstAttribute="top" secondItem="Oq1-de-e41" secondAttribute="bottom" constant="8" id="SSP-XZ-6Tk"/>
                             <constraint firstItem="I8c-Tu-Kxh" firstAttribute="top" secondItem="cRV-Og-bXU" secondAttribute="bottom" id="UV7-HB-ON2"/>
                             <constraint firstItem="cRV-Og-bXU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="VUB-yy-AjU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Gv-kA-O9V" secondAttribute="trailing" id="gz6-As-KYI"/>
                             <constraint firstItem="Oq1-de-e41" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="mwd-LY-PpQ"/>
                             <constraint firstItem="Oq1-de-e41" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="piG-0d-Eki"/>
                             <constraint firstItem="5od-p9-MK4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qr1-iV-tnK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Gv-kA-O9V" secondAttribute="bottom" id="sE6-UU-D3M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I8c-Tu-Kxh" secondAttribute="trailing" id="xAq-lm-MU4"/>
+                            <constraint firstItem="5Gv-kA-O9V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y2m-UD-HXi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -226,9 +240,6 @@
                                     <constraint firstItem="Psm-jT-mjQ" firstAttribute="top" secondItem="F4a-Uf-gQp" secondAttribute="top" constant="47" id="jGG-Ur-Tfp"/>
                                     <constraint firstAttribute="bottom" secondItem="Psm-jT-mjQ" secondAttribute="bottom" constant="8" id="yno-zp-tOS"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="WBx-Td-Txj" appends="YES" id="Zmy-ZF-40q"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LH6-lo-JoH" userLabel="ShadowView">
                                 <rect key="frame" x="414" y="88" width="414" height="774"/>
@@ -381,9 +392,11 @@
                         <outlet property="addAllButtonTopConstraints" destination="Bnu-na-PN4" id="96s-BF-Ts0"/>
                         <outlet property="clearAll" destination="gzd-jT-Nd5" id="VU9-QI-jrx"/>
                         <outlet property="clearAllButtonTopConstraints" destination="icj-pf-ZQN" id="ijH-t0-Xjo"/>
+                        <outlet property="foodImage" destination="Psm-jT-mjQ" id="0jd-nJ-nCU"/>
                         <outlet property="homeButton" destination="Wxt-uT-E1b" id="yxI-T9-4S4"/>
                         <outlet property="homeButtonTopConstraints" destination="YGb-9M-Y9y" id="Mhz-pf-XAX"/>
                         <outlet property="likeDislikeImageView" destination="2XX-iR-f1r" id="thm-hm-Wdt"/>
+                        <outlet property="mainView" destination="K4P-JT-1sm" id="O2I-ze-XZL"/>
                         <outlet property="menuButton" destination="cDN-Rf-iKj" id="bVd-9q-63E"/>
                         <outlet property="menuView" destination="w3x-Rz-327" id="h0w-YX-TWi"/>
                         <outlet property="menubarLeadindContraits" destination="sFR-Si-p6R" id="1nZ-Lv-LhQ"/>
@@ -636,7 +649,7 @@
                             <userLayoutGuide location="398" affinity="minX"/>
                         </userGuides>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resturant image" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food2" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-sY-vfc">
@@ -1080,6 +1093,7 @@
         <!--Navigation Controller-->
         <scene sceneID="UqR-pg-42d">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgE-VK-ori" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4nQ-aF-aij" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RtD-LM-4eH">
@@ -1091,7 +1105,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xBt-NR-a8j"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DgE-VK-ori" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2157.971014492754" y="0.6696428571428571"/>
         </scene>
@@ -1179,11 +1192,11 @@
         <image name="add all" width="200" height="200"/>
         <image name="clear" width="800" height="800"/>
         <image name="fish" width="600" height="450"/>
+        <image name="food2" width="1000" height="1500"/>
         <image name="home icon" width="200" height="200"/>
         <image name="menu image 2" width="200" height="200"/>
         <image name="profileImage" width="600" height="600"/>
         <image name="refresh" width="480" height="480"/>
-        <image name="resturant image" width="474" height="711"/>
         <image name="thumbsUp" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>

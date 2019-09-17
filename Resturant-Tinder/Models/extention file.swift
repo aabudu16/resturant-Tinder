@@ -7,6 +7,6 @@ extension UIButton{
         button.setTitle("Continue", for: .normal)
         button.backgroundColor = .clear
         button.tintColor = .blue
-        //button.layer.borderWidth = 
+        button.layer.borderWidth = 20
     }
 }
