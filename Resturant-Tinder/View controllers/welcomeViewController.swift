@@ -21,14 +21,18 @@ class WelcomeViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func pressedRandomButton(_ sender: UIButton) {
-        let swipeScreenVC = storyboard?.instantiateViewController(withIdentifier: "swipeScreenVC") as! SwipeViewController
+        let swipeScreenVC = storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
         //TODO: swipeScreenVC.categoriesArray = [All cases of Categories]
-        self.navigationController?.pushViewController(swipeScreenVC, animated: true)
+//        self.navigationController?.pushViewController(swipeScreenVC, animated: true)
+        self.present(swipeScreenVC, animated: true, completion: nil)
+
     }
     
     @IBAction func pressedSelectCategoryButton(_ sender: UIButton) {
-        let categoriesSelectionVC = storyboard?.instantiateViewController(withIdentifier: "categoriesSelectionVC") as! CatergoriesViewController
-        self.navigationController?.pushViewController(categoriesSelectionVC, animated: true)
+        let categoriesSelectionVC = storyboard?.instantiateViewController(withIdentifier: "CategoriesViewController") as! CatergoriesViewController
+//        self.navigationController?.pushViewController(categoriesSelectionVC, animated: true)
+        self.present(categoriesSelectionVC, animated: true, completion: nil)
+
     }
     
     //MARK: - Properties
