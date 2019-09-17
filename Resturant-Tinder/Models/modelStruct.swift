@@ -9,21 +9,22 @@
 import Foundation
 
 struct RestaurantInfo: Codable {
-    let businesses: BusinessesWrapper
     
-    
-    struct BusinessesWrapper : Codable {
-        let name : String
-        let image_url: String
-        let url: String
-        let review_count: String
-        let categories: CatWrapper
-        let review: Double?
-        let price: String
-        let location: locationWrapper
+    let businesses: [BusinessesWrapper]
         
-        
-    }
+}
+
+
+struct BusinessesWrapper : Codable {
+    let name : String
+    let image_url: String
+    let url: String
+    let review_count: Int
+    let categories: [CatWrapper]
+    let rating: Double?
+    let price: String
+    let location: locationWrapper
+}
     
     struct CatWrapper: Codable {
         let alias: String
@@ -35,10 +36,9 @@ struct RestaurantInfo: Codable {
         let city: String
         let country: String
         let state: String
-        let displayAddress: [String]?
+//        let displayAddress: [String]?
     }
-    
-}
+
 
 
 

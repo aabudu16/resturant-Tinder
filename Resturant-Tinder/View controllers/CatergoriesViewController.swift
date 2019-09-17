@@ -28,8 +28,22 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCategoriesTableView()
+        loaddata()
+        
     }
     
+    private func loaddata() {
+        ResturantAPIClient.getbusinessesData { (result) in
+            DispatchQueue.main.async {
+                switch result{
+                case .success( let allbiz ):
+                    print(allbiz.count)
+                case .failure( let error):
+                    print(error)
+                }
+            }
+        }
+    }
     //MARK: - DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: Define numRows
