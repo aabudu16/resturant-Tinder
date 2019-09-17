@@ -34,25 +34,12 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        //get businesses for each category
-        for category in chosenCategories {
-            let formattedCategory = category.replacingOccurrences(of: " ", with: "")
-            getBusinesses(for: formattedCategory)
-        }
-        //get images for each business
-        for business in relatedBusinesses {
-            DispatchQueue.global().async {
-                self.getImagesFromBusiness(imageURL: business.image_url)
-                DispatchQueue.main.async {
-                    for index in 0..<self.relatedBusinesses.count {
-                        self.businessesAndImages.append((self.relatedBusinesses[index], self.imagesForBusinesses[index]))
-                    }
-                    let swipeScreenVC = self.storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
-                    swipeScreenVC.businessesWithImages = self.businessesAndImages.shuffled()
-                    self.navigationController?.pushViewController(swipeScreenVC, animated: true)
-                }
-            }
-           
+        if !chosenCategories.isEmpty {
+            let swipeVC = storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
+            swipeVC.userChosenCategories = chosenCategories
+            self.navigationController?.pushViewController(swipeVC, animated: true)
+        } else {
+            return
         }
     }
     
