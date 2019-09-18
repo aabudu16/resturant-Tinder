@@ -1,4 +1,4 @@
-# resturant-Tinder
+# Resturant-Tinder
 
 # Group Project (whatCHEWant!)
 Parsing JSON using Codable from Business to implement to View Controllers.
