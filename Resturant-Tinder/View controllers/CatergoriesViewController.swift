@@ -50,7 +50,7 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
             DispatchQueue.main.async {
                 switch result{
                 case .success( let allbiz ):
-                    print(allbiz.count)
+                    print(allbiz[0].name)
                 case .failure( let error):
                     print(error)
                 }
