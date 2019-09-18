@@ -18,4 +18,4 @@ YelpFusion(Requires creating a free API key)
 
 # JSON
 JSON for this project can be found using a API key.
-YelpFusion(Requires creating a free API key)
+   - YelpFusion(Requires creating a free API key)
