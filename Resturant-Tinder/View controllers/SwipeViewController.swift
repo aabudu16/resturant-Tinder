@@ -2,89 +2,71 @@
 import UIKit
 
 class SwipeViewController: UIViewController {
-
+    //MARK: - Properties
+    var chosenCategories: [String]!
+    var arrOfBusinesses = [BusinessesWrapper]()
+    var arrTuples = [(BusinessesWrapper, UIImage)]()
+    var divisorNumber:CGFloat!
+    var slideMenuDisplayed = false
     
+    //MARK: - IBOutlets
     @IBOutlet var Category: UILabel!
     @IBOutlet var shadowView: UIView!
     @IBOutlet var menuButton: UIBarButtonItem!
-    var chosenCategories:[String]!
-    var divisorNumber:CGFloat!
-
     @IBOutlet var shadowViewTrailingContraints: NSLayoutConstraint!
-
-
-    var slideMenuDisplayed = false
-    
     @IBOutlet var mainView: UIView!
+    
+    //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // degree of tilt expressed in radian
-        
-    //getBusinesses(chosenCategories)
-        
         divisorNumber = (view.frame.width / 2) / 0.61
         shadowView.backgroundColor = UIColor(white: 0, alpha: 0.2)
         shadowView.layer.shadowOpacity = 1
         shadowView.layer.shadowRadius = 5
+        //createCardStack()
+        // degree of tilt expressed in radian
         
-        createCardStack()
+        //gets businesses array
+        let myGroup = DispatchGroup()
+        fetchBusinesses(group: myGroup, arrCategories: chosenCategories)
+        myGroup.notify(queue: DispatchQueue.main) {
+            let images = self.arrOfBusinesses.compactMap{ business->UIImage? in
+                guard let url = URL(string: business.image_url) else {return nil}
+                guard let imageData = try? Data(contentsOf: url) else {return nil}
+                return UIImage(data: imageData)
+            }
+            for index in 0..<self.arrOfBusinesses.count {
+                self.arrTuples.append((self.arrOfBusinesses.reversed()[index], images[index]))
+            }
+            self.createCardStack()
+        }
     }
     
-//    private func getBusinesses(_ chosenCategories:[String]) {
-//        print("Getting businesses")
-//        print("Chosen categories count: \(chosenCategories.count)")
-//        guard let searchTerm = chosenCategories.popLast() else { return }
-//        print("the search term is \(searchTerm)")
-//        ResturantAPIClient.getbusinessesData(categorySearch: searchTerm) { (result) in
-//            DispatchQueue.main.async {
-//                switch result{
-//                case .success( let allbiz :disappointed:
-//                    print("Success: got \(allbiz)")
-//                    self.relatedBusinesses += allbiz
-//                    if self.chosenCategories.isEmpty {
-//                    dump(self.relatedBusinesses)
-//                    //full array done
-//                    self.getImagesFromBusinesses()
-//                    return
-//                    } else {
-//                    print("recursively calling get businesses: current cat count: \(self.chosenCategories.count)")
-//                    self.getBusinesses()
-//                    }
-//                case .failure( let error):
-//                    print(error)
-//                }
-//            }
-//        }
-//    }
-//    private func getImagesFromBusinesses() {
-//        var copyOfRelatedBusinesses = self.relatedBusinesses
-//        guard let businessOfInterest = copyOfRelatedBusinesses.popLast() else { return }
-//        ImageHelper.shared.getImage(urlStr: businessOfInterest.image_url) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let image):
-//                    self.imagesForBusinesses.append(image)
-//                    if copyOfRelatedBusinesses.isEmpty {
-//                        dump(self.imagesForBusinesses)
-//                        return
-//                    } else {
-//                        self.getImagesFromBusinesses()
-//                    }
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-//    }
-//
-
-
+    private func fetchBusinesses(group: DispatchGroup, arrCategories: [String]) {
+        for category in arrCategories {
+            group.enter()
+            ResturantAPIClient.getbusinessesData(categorySearch: category) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let allbiz):
+                        self.arrOfBusinesses += allbiz
+                        group.leave()
+                    case.failure(let error):
+                        print(error)
+                        group.leave()
+                    }
+                }
+            }
+        }
+    }
+    
+    
     var imageView = UIImageView(image: UIImage(named: "fish"))
     
     private func createCardStack(){
         
         var newCard = UIView()
-        (0...10).forEach { (_) in
+        arrTuples.forEach { (businessImagePairing) in
             let newGuesture = UIPanGestureRecognizer(target: self, action: #selector(panCardSwipe(_:)))
             newCard = UIView(frame: CGRect(x: 0, y: 0, width: 340, height: 450))
             newCard.layer.cornerRadius = 20
@@ -97,7 +79,8 @@ class SwipeViewController: UIViewController {
             newCard.backgroundColor = .lightGray
             view.addSubview(newCard)
             
-            imageView = UIImageView(image: UIImage(named: "fish"))
+            imageView = UIImageView(image: businessImagePairing.1)
+            print(businessImagePairing.0.image_url)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             newCard.addSubview(imageView)
             imageView.contentMode = .scaleAspectFill
