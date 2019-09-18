@@ -47,6 +47,9 @@
                                 <state key="normal" title="IM FEELING PICKY...">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedSelectCategoryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dGy-3n-DDa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-Tu-Kxh">
                                 <rect key="frame" x="20" y="780" width="374" height="41"/>
@@ -55,6 +58,9 @@
                                 <state key="normal" title="JUST FEED ME!">
                                     <color key="titleColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedRandomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mqS-Pm-J4l"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Make a seclection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5od-p9-MK4">
                                 <rect key="frame" x="146" y="213" width="123" height="52"/>
