@@ -6,6 +6,8 @@ class SwipeViewController: UIViewController {
     var chosenCategories: [String]!
     var arrOfBusinesses = [BusinessesWrapper]()
     var arrTuples = [(BusinessesWrapper, UIImage)]()
+    var userChosenRestaurants = [(BusinessesWrapper, UIImage)]()
+    var currentTuple: (BusinessesWrapper, UIImage)? =  nil
     var divisorNumber:CGFloat!
     var slideMenuDisplayed = false
     
@@ -63,6 +65,7 @@ class SwipeViewController: UIViewController {
         var imageView = UIImageView(image: UIImage(named: "fish"))
         var newCard = UIView()
         arrTuples.forEach { (businessImagePairing) in
+            currentTuple = businessImagePairing
             let newGuesture = UIPanGestureRecognizer(target: self, action: #selector(panCardSwipe(_:)))
             newCard = UIView(frame: CGRect(x: 0, y: 0, width: 340, height: 450))
             newCard.layer.cornerRadius = 20
@@ -75,10 +78,9 @@ class SwipeViewController: UIViewController {
             newCard.backgroundColor = .lightGray
             view.addSubview(newCard)
             imageView = UIImageView(image: businessImagePairing.1)
-//            print(businessImagePairing.0.image_url)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             newCard.addSubview(imageView)
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 20
             
@@ -92,7 +94,7 @@ class SwipeViewController: UIViewController {
     }
     
     @IBAction func panCardSwipe(_ sender: UIPanGestureRecognizer) {
-        guard let panCard = sender.view else {return}
+        guard let panCard = sender.view else { return }
         
         let fingerPoint = sender.translation(in: view)
         // line 25 allows us to know which direction the view is being dragged to. if the xFromCenter is positive then its to the right. if the xFromCenter is nagative then its to the left.
@@ -104,18 +106,18 @@ class SwipeViewController: UIViewController {
         
         if xFromCenter > 0{
             panCard.layer.borderColor = #colorLiteral(red: 0.4923240542, green: 1, blue: 0.6202363372, alpha: 1)
-//            likeDislikeImageView.image = UIImage(named: "thumbsDown")
-//            likeDislikeImageView.tintColor = .red
+            //            likeDislikeImageView.image = UIImage(named: "thumbsDown")
+            //            likeDislikeImageView.tintColor = .red
         }else{
             panCard.layer.borderColor = #colorLiteral(red: 1, green: 0.2946998179, blue: 0.3782525361, alpha: 1)
-//            likeDislikeImageView.image = UIImage(named: "thumbsDown")
-//            likeDislikeImageView.tintColor = .red
-
+            //            likeDislikeImageView.image = UIImage(named: "thumbsDown")
+            //            likeDislikeImageView.tintColor = .red
+            
         }
         
         
         if abs(xFromCenter)/view.center.x > 0{
-          //  likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
+            //  likeDislikeImageView.alpha = 0.5 + (abs(xFromCenter)/view.center.x)
         }
         
         if panCard.center.x > 257 || panCard.center.x < 157{
@@ -136,14 +138,18 @@ class SwipeViewController: UIViewController {
     
     @IBAction func navigationMenuButtonPressed(_ sender: UIBarButtonItem) {
         
-    
+        
     }
     
     
     @IBAction func nextbuttonPressed(_ sender: UIButton) {
-        
-        guard let resturantVC = storyboard?.instantiateViewController(withIdentifier: "ResturantsViewController") as? ResturantsViewController else {return}
-        self.navigationController?.pushViewController(resturantVC , animated: true)
+        if !self.userChosenRestaurants.isEmpty {
+            guard let resturantVC = storyboard?.instantiateViewController(withIdentifier: "ResturantsViewController") as? ResturantsViewController else {return}
+//            resturantVC.resturant = userChosenRestaurants
+            self.navigationController?.pushViewController(resturantVC , animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     private  func panCardChangedState(_ panCard:UIView){
@@ -153,7 +159,6 @@ class SwipeViewController: UIViewController {
                 panCard.center = CGPoint(x: panCard.center.x - 100, y: panCard.center.y )
                 panCard.alpha = 0
                 panCard.removeFromSuperview()
-                
             })
             return
             
@@ -163,6 +168,7 @@ class SwipeViewController: UIViewController {
                 panCard.center = CGPoint(x: panCard.center.x + 100, y: panCard.center.y )
                 panCard.alpha = 1
                 panCard.removeFromSuperview()
+                self.userChosenRestaurants.append(self.currentTuple!)
             })
         }
     }
@@ -170,10 +176,10 @@ class SwipeViewController: UIViewController {
     private func panCardReset(_ panCard:UIView){
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             panCard.center = self.view.center
-           // self.likeDislikeImageView.alpha = 0
+            // self.likeDislikeImageView.alpha = 0
             panCard.alpha = 1
             panCard.transform = CGAffineTransform.identity
-            panCard.backgroundColor = .clear
+            panCard.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         })
     }
     
@@ -181,7 +187,7 @@ class SwipeViewController: UIViewController {
     private  func printFunction(){
         print("main view \(view.center.x)")
         print("view.frame.width \(view.frame.width)")
-       // print( "Like and dislike aplha" + "\(likeDislikeImageView.alpha)")
+        // print( "Like and dislike aplha" + "\(likeDislikeImageView.alpha)")
     }
     
     
