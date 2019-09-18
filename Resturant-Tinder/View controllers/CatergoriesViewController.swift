@@ -21,7 +21,14 @@ class CatergoriesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        
+
+        if !chosenCategories.isEmpty {
+            let swipeVC = storyboard?.instantiateViewController(withIdentifier: "SwipeViewController") as! SwipeViewController
+            swipeVC.chosenCategories = chosenCategories
+            self.navigationController?.pushViewController(swipeVC, animated: true)
+        } else {
+            return
+        }
     }
     
     //MARK: - LifeCycle Methods
