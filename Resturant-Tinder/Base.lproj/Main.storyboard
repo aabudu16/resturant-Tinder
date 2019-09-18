@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQ9-GV-SuM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YgO-ec-AMA">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -491,14 +491,30 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-sY-vfc">
                                 <rect key="frame" x="0.0" y="117" width="414" height="745"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4uR-uT-M0W">
-                                        <rect key="frame" x="0.0" y="8" width="414" height="128"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyL-UB-Oh8">
+                                        <rect key="frame" x="0.0" y="8" width="414" height="153"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatCHEWant?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-mn-RAh">
+                                                <rect key="frame" x="16" y="55" width="382" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="PXO-G1-7AZ"/>
+                                                    <constraint firstAttribute="width" constant="382" id="d4Y-Od-CHD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="43"/>
+                                                <color key="textColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="8f6-FJ-LqV"/>
+                                            <constraint firstAttribute="height" constant="153" id="MrD-Fn-guo"/>
+                                            <constraint firstItem="fuK-mn-RAh" firstAttribute="centerX" secondItem="dyL-UB-Oh8" secondAttribute="centerX" id="R3D-qr-9h1"/>
+                                            <constraint firstItem="fuK-mn-RAh" firstAttribute="top" secondItem="dyL-UB-Oh8" secondAttribute="top" constant="55" id="eOS-Jg-odr"/>
+                                            <constraint firstAttribute="width" constant="414" id="r9K-h8-8ee"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-ql-YCh">
-                                        <rect key="frame" x="0.0" y="186" width="414" height="263"/>
+                                        <rect key="frame" x="0.0" y="211" width="414" height="263"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="YRn-bY-J4X">
                                                 <rect key="frame" x="16" y="8" width="382" height="129"/>
@@ -578,7 +594,7 @@
                                         <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9xj-JO-497">
-                                        <rect key="frame" x="0.0" y="499" width="414" height="108"/>
+                                        <rect key="frame" x="0.0" y="524" width="414" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Email or Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-R8-Ysg" userLabel="Error Meesage">
                                                 <rect key="frame" x="0.0" y="45" width="414" height="21"/>
@@ -597,7 +613,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-gP-4hh">
-                                        <rect key="frame" x="0.0" y="657" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="660" width="414" height="77"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KFr-Gf-cFK">
                                                 <rect key="frame" x="85" y="0.0" width="244.5" height="30"/>
@@ -622,7 +638,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zus-jl-Ikx">
-                                                <rect key="frame" x="141" y="31" width="132" height="49"/>
+                                                <rect key="frame" x="141" y="31" width="132" height="46"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -929,7 +945,6 @@
         <!--Navigation Controller-->
         <scene sceneID="UqR-pg-42d">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DgE-VK-ori" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4nQ-aF-aij" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RtD-LM-4eH">
@@ -941,6 +956,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xBt-NR-a8j"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgE-VK-ori" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3068.115942028986" y="0.6696428571428571"/>
         </scene>

@@ -28,6 +28,7 @@
 		85F49A7723301CB80017B21E /* APPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A7623301CB80017B21E /* APPErrors.swift */; };
 		85F49A7923301CD70017B21E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A7823301CD70017B21E /* Network.swift */; };
 		85F49A7B23301F420017B21E /* ResturantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49A7A23301F420017B21E /* ResturantAPIClient.swift */; };
+		85F49AA92331BEC00017B21E /* imageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F49AA82331BEC00017B21E /* imageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		85F49A7623301CB80017B21E /* APPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPErrors.swift; sourceTree = "<group>"; };
 		85F49A7823301CD70017B21E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		85F49A7A23301F420017B21E /* ResturantAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantAPIClient.swift; sourceTree = "<group>"; };
+		85F49AA82331BEC00017B21E /* imageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				85F49A7623301CB80017B21E /* APPErrors.swift */,
 				85F49A7823301CD70017B21E /* Network.swift */,
+				85F49AA82331BEC00017B21E /* imageHelper.swift */,
 			);
 			path = "Helper folder";
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				85F49A6F232FE2140017B21E /* ResturantDetailViewController.swift in Sources */,
 				85F49A7723301CB80017B21E /* APPErrors.swift in Sources */,
 				8500B6A8232C487800F6378F /* SignUpViewController.swift in Sources */,
+				85F49AA92331BEC00017B21E /* imageHelper.swift in Sources */,
 				85F49A71232FF8B80017B21E /* ResturantTableViewCell.swift in Sources */,
 				85F49A7523301C7E0017B21E /* modelStruct.swift in Sources */,
 				8500B6AE232D80EA00F6378F /* SwipeViewController.swift in Sources */,
