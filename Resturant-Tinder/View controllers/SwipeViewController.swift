@@ -2,7 +2,6 @@
 import UIKit
 
 class SwipeViewController: UIViewController {
-
     
     @IBOutlet var Category: UILabel!
     @IBOutlet var shadowView: UIView!
