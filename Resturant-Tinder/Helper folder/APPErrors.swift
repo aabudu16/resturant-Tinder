@@ -7,9 +7,7 @@
 //
 
 import Foundation
-
 enum AppError: Error {
-    
     case badJSONError
     case networkError
     case noDataError
@@ -19,8 +17,4 @@ enum AppError: Error {
     case unauthorized //403 and 401 status code
     case badImageData
     case other(errorDescription: String)
-    case noDataReceived
-    case badStatusCode
-    case noInternetConnection
-    case other (rawError: Error)
 }

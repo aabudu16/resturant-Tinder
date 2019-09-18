@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQ9-GV-SuM">
-
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +21,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food2" translatesAutoresizingMaskIntoConstraints="NO" id="5Gv-kA-O9V">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="welcome name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oq1-de-e41">
                                 <rect key="frame" x="70" y="184" width="274" height="21"/>
                                 <constraints>
@@ -90,7 +88,7 @@
         <!--Catergories View Controller-->
         <scene sceneID="i40-B6-cFR">
             <objects>
-                <viewController storyboardIdentifier="CategoriesViewController" id="cNU-sD-tSS" customClass="CatergoriesViewController" customModule="Resturant_Tinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cNU-sD-tSS" customClass="CatergoriesViewController" customModule="Resturant_Tinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c04-Lb-eOB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +102,7 @@
                                             <constraint firstAttribute="width" constant="105" id="IIq-IW-kGN"/>
                                             <constraint firstAttribute="height" constant="30" id="yAh-Pn-grM"/>
                                         </constraints>
-                                        <state key="normal" title="Done"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="continueButton:" destination="cNU-sD-tSS" eventType="touchUpInside" id="zeG-vc-DVd"/>
                                         </connections>
@@ -122,7 +120,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryCell" textLabel="U0Q-Gc-cCz" detailTextLabel="t79-EX-NF5" style="IBUITableViewCellStyleValue1" id="Ll8-6S-Btd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="U0Q-Gc-cCz" detailTextLabel="t79-EX-NF5" style="IBUITableViewCellStyleValue1" id="Ll8-6S-Btd">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ll8-6S-Btd" id="tGy-W2-zea">
@@ -136,7 +134,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t79-EX-NF5">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t79-EX-NF5">
                                                     <rect key="frame" x="350" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -162,7 +160,7 @@
                         <viewLayoutGuide key="safeArea" id="rpE-gd-kbr"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xx8-60-Y3n">
-                        <barButtonItem key="rightBarButtonItem" title="Select All" id="Uom-q1-43x">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Uom-q1-43x">
                             <connections>
                                 <action selector="selectbuttonPressed:" destination="cNU-sD-tSS" id="ddg-hy-arz"/>
                             </connections>
@@ -487,8 +485,6 @@
                             <userLayoutGuide location="398" affinity="minX"/>
                         </userGuides>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resturant image" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food2" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-TC-bja">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
@@ -654,7 +650,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0yJ-p6-6lQ"/>
                     </view>
-
                     <navigationItem key="navigationItem" id="weo-2M-z5d"/>
                     <connections>
                         <outlet property="emailTextField" destination="MTV-kT-ZTH" id="EeG-0x-wQz"/>
@@ -1028,24 +1023,20 @@
             <point key="canvasLocation" x="11101.44927536232" y="0.6696428571428571"/>
         </scene>
         <!--Navigation Controller-->
-
         <scene sceneID="22R-7d-8pQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zQ9-GV-SuM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AwB-3c-SNW">
-
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-
                         <segue destination="Bfl-cg-ptI" kind="relationship" relationship="rootViewController" id="31e-Op-Pa9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGa-8U-RZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-
             </objects>
             <point key="canvasLocation" x="460.86956521739131" y="0.6696428571428571"/>
         </scene>
