@@ -1,6 +1,6 @@
 # Resturant-Tinder
 
-# Group Project (whatCHEWant!)
+###### Group Project (whatCHEWant!)
 Parsing JSON using Codable from Business to implement to View Controllers.
 ## Github Instructions
 Clone it to your machine
