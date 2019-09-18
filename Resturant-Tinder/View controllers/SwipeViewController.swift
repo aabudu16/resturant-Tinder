@@ -19,12 +19,11 @@ class SwipeViewController: UIViewController {
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        // degree of tilt expressed in radian
         divisorNumber = (view.frame.width / 2) / 0.61
         shadowView.backgroundColor = UIColor(white: 0, alpha: 0.2)
         shadowView.layer.shadowOpacity = 1
         shadowView.layer.shadowRadius = 5
-        //createCardStack()
-        // degree of tilt expressed in radian
         
         //gets businesses array
         let myGroup = DispatchGroup()
@@ -60,11 +59,8 @@ class SwipeViewController: UIViewController {
         }
     }
     
-    
-    var imageView = UIImageView(image: UIImage(named: "fish"))
-    
     private func createCardStack(){
-        
+        var imageView = UIImageView(image: UIImage(named: "fish"))
         var newCard = UIView()
         arrTuples.forEach { (businessImagePairing) in
             let newGuesture = UIPanGestureRecognizer(target: self, action: #selector(panCardSwipe(_:)))
@@ -78,12 +74,11 @@ class SwipeViewController: UIViewController {
             newCard.addGestureRecognizer(newGuesture)
             newCard.backgroundColor = .lightGray
             view.addSubview(newCard)
-            
             imageView = UIImageView(image: businessImagePairing.1)
-            print(businessImagePairing.0.image_url)
+//            print(businessImagePairing.0.image_url)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             newCard.addSubview(imageView)
-            imageView.contentMode = .scaleAspectFill
+            imageView.contentMode = .scaleAspectFit
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 20
             
